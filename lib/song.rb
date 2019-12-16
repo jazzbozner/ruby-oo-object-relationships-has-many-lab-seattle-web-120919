@@ -1,17 +1,26 @@
 require 'pry'
+require_relative 'artist.rb'
+
 class Song
 
-    attr_accessor :name
+    attr_accessor :name, :artist
     @@all = [ ]
 
     def initialize(name)
-        binding.pry
         @name = name
-        @@all << name
+        @@all << self
     end
 
     def self.all
         @@all
     end
+
+    def artist_name
+        if !self.artist
+            return nil
+        end
+        self.artist.name
+    end
+
     
 end
