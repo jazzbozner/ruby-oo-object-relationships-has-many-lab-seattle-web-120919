@@ -2,8 +2,8 @@ require "pry"
 require_relative "author.rb"
 
 class Post
-  attr_accessor :author
   attr_reader :title
+  attr_accessor :author
   @@all = []
 
   def initialize(title)

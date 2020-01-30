@@ -9,7 +9,7 @@ class Artist
   end
 
   def songs
-    Song.all.each { |song| song }
+    Song.all.select { |song| song.artist == self }
   end
 
   # takes in an argument of a song and associates that
@@ -21,9 +21,9 @@ class Artist
 
   # takes in an argument of a post title, creates a new
   # post with it and associates the post and author
-  def add_song_by_name(name)
-    name = Song.new(name)
-    name.artist = self
+  def add_song_by_name(song)
+    song = Song.new(song)
+    song.artist = self
   end
 
   def self.song_count
